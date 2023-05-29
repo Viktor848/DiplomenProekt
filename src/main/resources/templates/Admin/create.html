@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Welcome</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    <style>
+body {background-color: powderblue;}
+
+</style>
+</head>
+<body>
+<div class="container text-center">
+    <h3><a th:href="@{/create_admin}">Add admin</a></h3>
+    <h3><a th:href="@{/create_customer}">Add customer</a></h3>
+    <h3><a th:href="@{/create_employee}">Add employee</a></h3>
+    <h3><a th:href="@{/admin_option}">Click here to menu</a></h3>
+</div>
+</body>
+</html>

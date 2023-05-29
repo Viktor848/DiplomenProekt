@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Update customer</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    <style>
+body {background-color: powderblue;}
+
+</style>
+</head>
+<body>
+<div class="container text-center">
+    <div>
+        <h1>Update customer</h1>
+    </div>
+    <form th:action="@{@{/customer_update/{id}(id=${customer.id})}}" th:object="${customer}"
+          method="post" style="max-width: 600px; margin: 0 auto;">
+        <div class="m-3">
+            <div class="form-group row">
+                <label class="col-4 col-form-label">Name: </label>
+                <div class="col-8">
+                    <input type="text" th:field="*{name}" class="form-control" required />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-4 col-form-label">Project name: </label>
+                <div class="col-8">
+                    <input type="text" th:field="*{projectName}" class="form-control"
+                           required minlength="6" maxlength="10"/>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-4 col-form-label">Date: </label>
+                <div class="col-8">
+                    <input type="date" th:field="*{date}" class="form-control"
+                           required minlength="2" maxlength="20"/>
+                </div>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Statistics</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    <style>
+body {background-color: powderblue;}
+
+</style>
+</head>
+<body>
+<div class="container text-center">
+    <div>
+        <h1>Statistics</h1>
+    </div>
+
+    <div>
+        <table class="table table-striped table-bordered">
+            <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Employee name</th>
+                <th>Work project</th>
+                <th>Spend time</th>
+                <th>Info</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="protocol: ${listProtocol}">
+                <td th:text="${protocol.id}">Protocol ID</td>
+                <td th:text="${protocol.employeeName}">Employee name</td>
+                <td th:text="${protocol.projectName}">Work project</td>
+                <td th:text="${protocol.spentTime}">Spend time</td>
+                <td th:text="${protocol.info}">Info</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <form th:action="@{/admin_option}">
+            <input type="submit" value="Home" class="btn btn-primary"/>
+        </form>
+    </div>
+</div>
+</body>
+</html>

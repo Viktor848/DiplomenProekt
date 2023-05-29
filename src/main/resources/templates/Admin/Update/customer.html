@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Customers</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    <style>
+body {background-color: powderblue;}
+
+</style>
+</head>
+<body>
+<div class="container text-center">
+    <div>
+        <h1>Customers</h1>
+    </div>
+
+    <div>
+        <table class="table table-striped table-bordered">
+            <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Customer name</th>
+                <th>Project name</th>
+                <th>Date</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="customer: ${listCustomer}">
+                <td th:text="${customer.id}">ID</td>
+                <td th:text="${customer.name}">Customer name</td>
+                <td th:text="${customer.projectName}">Project name</td>
+                <td th:text="${customer.date}">Date</td>
+                <td>
+                    <a th:href="@{/customer_update/{id}(id=${customer.id})}">Update</a>
+                </td>
+                <td>
+                    <form th:action="@{/customer_delete/{id}(id=${customer.id})}" method="post">
+                        <input value="Delete" type="Submit">
+                    </form>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <form th:action="@{/admin_option}">
+            <input type="submit" value="Home" class="btn btn-primary"/>
+        </form>
+    </div>
+</div>
+</body>
+</html>
